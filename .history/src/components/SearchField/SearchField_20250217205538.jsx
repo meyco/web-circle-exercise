@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Button from "../Button/Button";
 import styles from "./SearchField.module.css";
 
 const SearchField = () => {
@@ -11,7 +10,7 @@ const SearchField = () => {
         placeholder="Filter dishes..."
         type="text"
         value={searchText}
-        onChange={(event)=> setSearchText(event.target.value)}     
+        onChange={setSearchText}     
       />
     </div>
   );

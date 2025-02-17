@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Button from "../Button/Button";
 import styles from "./SearchField.module.css";
 
 const SearchField = () => {
