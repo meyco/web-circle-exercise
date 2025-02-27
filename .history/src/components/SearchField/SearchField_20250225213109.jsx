@@ -6,10 +6,10 @@ const SearchField = () => {
   //save search text
   const [searchText, setSearchText] = useState("");
 
-  // //find filter
-  // const filteredItems = items.filter(item =>
-  //   item.includes(searchText)
-  // );
+  //find filter
+  const filteredItems = items.filter(item =>
+    item.includes(searchText)
+  )
 
   return (
     <div className={styles.wrapper}>
@@ -19,7 +19,6 @@ const SearchField = () => {
         value={searchText}
         onChange={(event)=> setSearchText(event.target.value)}     
       />
-      <Button>find</Button>
     </div>
   );
   console.log({searchText});

@@ -19,7 +19,7 @@ const SearchField = () => {
         value={searchText}
         onChange={(event)=> setSearchText(event.target.value)}     
       />
-      <Button>find</Button>
+      <Button></Button>
     </div>
   );
   console.log({searchText});
