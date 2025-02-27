@@ -8,12 +8,11 @@ import SearchField from "../components/SearchField/SearchField.jsx";
 
 const RestaurantView = () => {
   const [dishes, setDishes] = useState([]);
-  
   //keep search text
-   const [searchText, setSearchText] = useState("");
+  const [searchText, setSearchText] = useState("");
 
   //filter
-  const filteredMenu = dishes.filter((dish) =>
+  const filteredMenu = menuItems.filter((dish) =>
     dish.strMeal.toLowerCase().includes(searchText.toLowerCase())
   );
 
@@ -63,44 +62,26 @@ const RestaurantView = () => {
     <>
       <NavBar>
         <h1>ReDI React Restaurant</h1>
-        <SearchField />
-        {/* <SearchField searchText={searchText} setSearchText={setSearchText} /> */}
-        </NavBar>
+        <SearchField searchText={searchText} setSearchText={setSearchText} />
+      </NavBar>
 
       <div className={styles.restaurantWrapper}>
-      <SearchField searchText={searchText} setSearchText={setSearchText} />
 
-      {filteredMenu.length > 0 ?(
-      <div className={styles.menu}> 
-      {
-        filteredMenu.map((dish) =>(
-          <MenuItem key={dish.idMeal} dish={dish}/>
-        ))}
+        <div className={styles.menu}>
+          {dishes.length > 0 ? (
+            dishes.map((dish) => (
+              <MenuItem
+                dish={dish}
+                key={dish.idMeal}
+              />
+            ))
+          ) : (
+            <p>No dishes found :(</p>
+          )}
         </div>
-         ) : (
-          <p>No dishes found :(</p>
-        )}
       </div>
-  </>
-);
+    </>
+  );
 };
-
-
-      // <div className={styles.menu}>
-      //     {dishes.length > 0 ? (
-      //       dishes.map((dish) => (
-      //         <MenuItem
-      //           dish={dish}
-      //           key={dish.idMeal}
-      //         />
-      //       ))
-//           ) : (
-//             <p>No dishes found :(</p>
-//           )}
-//         </div>
-//       </div>
-//     </>
-//   );
-// };
 
 export default RestaurantView;

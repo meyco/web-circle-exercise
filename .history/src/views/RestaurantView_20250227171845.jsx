@@ -77,14 +77,6 @@ const RestaurantView = () => {
           <MenuItem key={dish.idMeal} dish={dish}/>
         ))}
         </div>
-         ) : (
-          <p>No dishes found :(</p>
-        )}
-      </div>
-  </>
-);
-};
-
 
       // <div className={styles.menu}>
       //     {dishes.length > 0 ? (
@@ -94,13 +86,13 @@ const RestaurantView = () => {
       //           key={dish.idMeal}
       //         />
       //       ))
-//           ) : (
-//             <p>No dishes found :(</p>
-//           )}
-//         </div>
-//       </div>
-//     </>
-//   );
-// };
+          ) : (
+            <p>No dishes found :(</p>
+          )}
+        </div>
+      </div>
+    </>
+  );
+};
 
 export default RestaurantView;

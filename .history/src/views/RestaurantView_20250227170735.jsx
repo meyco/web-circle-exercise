@@ -9,13 +9,13 @@ import SearchField from "../components/SearchField/SearchField.jsx";
 const RestaurantView = () => {
   const [dishes, setDishes] = useState([]);
   
-  //keep search text
-   const [searchText, setSearchText] = useState("");
+  // //keep search text
+  // const [searchText, setSearchText] = useState("");
 
-  //filter
-  const filteredMenu = dishes.filter((dish) =>
-    dish.strMeal.toLowerCase().includes(searchText.toLowerCase())
-  );
+  // //filter
+  // const filteredMenu = menuItems.filter((dish) =>
+  //   dish.strMeal.toLowerCase().includes(searchText.toLowerCase())
+  // );
 
   // useDebouncedCallback takes a function as a parameter and as the second parameter
   // the number of milliseconds it should wait until it is actually called so a user
@@ -65,42 +65,25 @@ const RestaurantView = () => {
         <h1>ReDI React Restaurant</h1>
         <SearchField />
         {/* <SearchField searchText={searchText} setSearchText={setSearchText} /> */}
-        </NavBar>
+      </NavBar>
 
       <div className={styles.restaurantWrapper}>
-      <SearchField searchText={searchText} setSearchText={setSearchText} />
-
-      {filteredMenu.length > 0 ?(
-      <div className={styles.menu}> 
-      {
-        filteredMenu.map((dish) =>(
-          <MenuItem key={dish.idMeal} dish={dish}/>
-        ))}
+      <SearchField />
+        <div className={styles.menu}>
+          {dishes.length > 0 ? (
+            dishes.map((dish) => (
+              <MenuItem
+                dish={dish}
+                key={dish.idMeal}
+              />
+            ))
+          ) : (
+            <p>No dishes found :(</p>
+          )}
         </div>
-         ) : (
-          <p>No dishes found :(</p>
-        )}
       </div>
-  </>
-);
+    </>
+  );
 };
-
-
-      // <div className={styles.menu}>
-      //     {dishes.length > 0 ? (
-      //       dishes.map((dish) => (
-      //         <MenuItem
-      //           dish={dish}
-      //           key={dish.idMeal}
-      //         />
-      //       ))
-//           ) : (
-//             <p>No dishes found :(</p>
-//           )}
-//         </div>
-//       </div>
-//     </>
-//   );
-// };
 
 export default RestaurantView;

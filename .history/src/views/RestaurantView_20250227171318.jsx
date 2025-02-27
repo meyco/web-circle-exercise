@@ -63,44 +63,27 @@ const RestaurantView = () => {
     <>
       <NavBar>
         <h1>ReDI React Restaurant</h1>
-        <SearchField />
+        {/* <SearchField /> */}
         {/* <SearchField searchText={searchText} setSearchText={setSearchText} /> */}
         </NavBar>
 
       <div className={styles.restaurantWrapper}>
       <SearchField searchText={searchText} setSearchText={setSearchText} />
-
-      {filteredMenu.length > 0 ?(
-      <div className={styles.menu}> 
-      {
-        filteredMenu.map((dish) =>(
-          <MenuItem key={dish.idMeal} dish={dish}/>
-        ))}
+      <div className={styles.menu}>
+          {dishes.length > 0 ? (
+            dishes.map((dish) => (
+              <MenuItem
+                dish={dish}
+                key={dish.idMeal}
+              />
+            ))
+          ) : (
+            <p>No dishes found :(</p>
+          )}
         </div>
-         ) : (
-          <p>No dishes found :(</p>
-        )}
       </div>
-  </>
-);
+    </>
+  );
 };
-
-
-      // <div className={styles.menu}>
-      //     {dishes.length > 0 ? (
-      //       dishes.map((dish) => (
-      //         <MenuItem
-      //           dish={dish}
-      //           key={dish.idMeal}
-      //         />
-      //       ))
-//           ) : (
-//             <p>No dishes found :(</p>
-//           )}
-//         </div>
-//       </div>
-//     </>
-//   );
-// };
 
 export default RestaurantView;
