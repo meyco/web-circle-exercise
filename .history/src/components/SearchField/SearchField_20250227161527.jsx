@@ -31,7 +31,7 @@ const SearchField = () => {
       />
       <ul>
         {FilterdMenu.map((item, index)=>(
-          <li key={index}>{item.name}</li>
+          <li key={index}>{item}</li>
         ))}
       </ul>
     </div>

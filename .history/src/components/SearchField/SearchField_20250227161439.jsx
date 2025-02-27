@@ -1,5 +1,5 @@
 import { useState } from "react";
-//import Button from "../Button/Button";
+import Button from "../Button/Button";
 import styles from "./SearchField.module.css";
 
 const SearchField = () => {
@@ -13,9 +13,11 @@ const SearchField = () => {
     { name: "Onigiri" },
     { name: "Matcha" },
   ];
+  
 
    //find filter
    const FilterdMenu = menuItems.filter(item =>
+    
      item.name.toLowerCase().includes (searchText.toLowerCase())
    );
    
@@ -31,7 +33,7 @@ const SearchField = () => {
       />
       <ul>
         {FilterdMenu.map((item, index)=>(
-          <li key={index}>{item.name}</li>
+          <li key={index}>{item}</li>
         ))}
       </ul>
     </div>
